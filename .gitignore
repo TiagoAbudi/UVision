@@ -1,0 +1,53 @@
+# Credenciais: somente o exemplo é público.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+
+# Dados da instalação: não apagar para preparar a publicação.
+logs/
+snapshots/
+recordings/
+datasets/
+runtime/
+calibration/
+assets/telegram/
+
+# Pesos e artefatos locais.
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.avi
+*.mkv
+*.zip
+*.log
+*.tmp
+build/
+dist/
+*.spec
+*.egg-info/
+src/camera_ai/frontend_dist/
+
+# Ambientes e caches.
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.coverage
+htmlcov/
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+
+# Relatórios históricos com referências a capturas privadas.
+docs/UI-2.0.md
+docs/UI-3.0.md
+

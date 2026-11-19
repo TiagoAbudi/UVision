@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=78"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ustudio-camera-ai"
+version = "0.1.0"
+description = "Detecção YOLO em lote e painel local para nove câmeras"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+camera_ai = ["*.qss", "ui-icons/*.svg", "frontend_dist/*.html", "frontend_dist/*.txt", "frontend_dist/assets/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

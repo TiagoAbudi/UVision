@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0a0f17">
+    <title>UStudio Vision</title>
+    <link rel="stylesheet" href="/assets/styles.css?v=20261027-6">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="UStudio Vision — início">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" role="img"><path d="M4 10.5 16 4l12 6.5v11L16 28 4 21.5v-11Z"/><circle cx="16" cy="16" r="5"/></svg>
+          </span>
+          <span><strong>USTUDIO</strong><small>VISION</small></span>
+        </a>
+
+        <div class="topbar-right">
+          <div class="metrics" aria-label="Resumo do monitoramento">
+            <div class="metric"><span id="online-count">—</span><small>CÂMERAS</small></div>
+            <div class="metric person-metric"><span id="people-count">—</span><small>PESSOAS</small></div>
+            <div class="metric ai-metric"><span id="ai-latency">—</span><small>IA / MS</small></div>
+          </div>
+          <div class="system-summary" aria-live="polite">
+            <span class="pulse-dot"></span>
+            <span id="system-state">Conectando ao DVR</span>
+            <span class="separator"></span>
+            <time id="clock">--:--:--</time>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="mosaic-stage" aria-label="Visão simultânea das nove câmeras">
+          <div class="mosaic-shell">
+            <img id="mosaic-image" alt="Mosaico ao vivo das nove câmeras">
+            <div class="mosaic-hotspots" id="mosaic-hotspots" aria-label="Selecionar uma câmera"></div>
+            <div class="mosaic-loading" id="mosaic-loading"><i></i> Preparando câmeras e IA...</div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Conexão protegida na rede local</span>
+        <span>As credenciais nunca são enviadas ao navegador</span>
+      </footer>
+    </div>
+
+    <dialog id="viewer" aria-labelledby="viewer-title">
+      <div class="viewer-shell">
+        <header class="viewer-header">
+          <div>
+            <p id="viewer-channel">CANAL —</p>
+            <h2 id="viewer-title">Câmera</h2>
+          </div>
+          <button class="icon-button" id="viewer-close" aria-label="Fechar visualização">×</button>
+        </header>
+        <div class="viewer-frame">
+          <img id="viewer-image" alt="Visualização ampliada da câmera">
+          <span class="live-badge"><i></i> AO VIVO</span>
+          <section class="fall-panel" id="fall-panel" aria-label="Calibração de detecção de queda" hidden>
+            <div class="fall-panel-header">
+              <span id="fall-channel">CALIBRAÇÃO DE QUEDA</span>
+              <strong id="fall-state">NORMAL</strong>
+            </div>
+            <div class="fall-metrics">
+              <span><b id="fall-score">0%</b><small>RISCO</small></span>
+              <span><b id="fall-angle">—</b><small>TRONCO</small></span>
+              <span><b id="fall-speed">—</b><small>VELOC.</small></span>
+            </div>
+            <p><i></i> MODO SILENCIOSO · SEM ALERTAS</p>
+          </section>
+          <section class="ptz-panel" id="ptz-panel" aria-label="Controle de rotação" hidden>
+            <span class="ptz-label">ROTACIONAR</span>
+            <div class="ptz-pad">
+              <button class="ptz-button ptz-up" data-ptz="up" aria-label="Mover para cima">↑</button>
+              <button class="ptz-button ptz-left" data-ptz="left" aria-label="Mover para a esquerda">←</button>
+              <button class="ptz-button ptz-home" data-ptz="home" aria-label="Voltar à posição inicial">⌂</button>
+              <button class="ptz-button ptz-right" data-ptz="right" aria-label="Mover para a direita">→</button>
+              <button class="ptz-button ptz-down" data-ptz="down" aria-label="Mover para baixo">↓</button>
+            </div>
+            <small>Segure para mover</small>
+          </section>
+        </div>
+        <nav class="viewer-nav" aria-label="Navegação entre câmeras">
+          <button id="viewer-prev">← Anterior</button>
+          <span id="viewer-position">1 / 8</span>
+          <button id="viewer-next">Próxima →</button>
+        </nav>
+      </div>
+    </dialog>
+
+    <noscript>Ative o JavaScript para visualizar as câmeras.</noscript>
+    <script src="/assets/app.js?v=20261027-6" defer></script>
+  </body>
+</html>
